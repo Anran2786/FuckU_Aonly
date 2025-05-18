@@ -6,6 +6,7 @@ pause
 set "tool=%~dp0bin\magiskboot.exe"
 set "ramdisk=%~dp0bin\ramdisk.cpio"
 set "root=%~dp0"
+mkdir bin\tmp
 copy boot.img bin\tmp
 cd bin\tmp
 %tool% unpack boot.img
@@ -13,6 +14,7 @@ copy %ramdisk% ramdisk.cpio
 %tool% repack boot.img
 move /y new-boot.img %root%boot_sar.img
 del /Q .\*
+::必样的差点把老子c盘干了
 cls
 echo 转换完成，转换后的文件为boot_sar.img
 pause
